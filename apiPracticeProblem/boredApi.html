@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="text-align: center; color: deepskyblue;">BORED API PRACTICE</h2>
+    <div >
+      <p id="activity" style="text-align: center;;"></p>
+      <p id="accessibility" style="text-align: center;"></p>
+      <p id="type" style="text-align: center;"></p>
+      <p id="participants" style="text-align: center;"></p>
+      <p id="price" style="text-align: center;"></p>
+      <p id="link" style="text-align: center;"></p>
+      <p id="key" style="text-align: center;"></p>
+    </div>
+
+    <script>
+
+        dataFromBoardApi();
+        setInterval(()=>{
+            dataFromBoardApi();
+        },1000)
+        
+        function dataFromBoardApi(){
+            fetch('http://www.boredapi.com/api/activity/')
+            .then(response => response.json())
+            .then(json => displayUser(json));
+        }
+
+        function displayUser(data){
+            console.log(data);
+            document.getElementById('activity').innerText="activity :  "+data.activity;
+            document.getElementById('accessibility').innerText="accessibility :  "+data.accessibility;
+            document.getElementById('type').innerText="type :  "+data.type;
+            document.getElementById('participants').innerText="participants :  "+data.participants;
+            document.getElementById('price').innerText="price :  "+data.price;
+            document.getElementById('link').innerText="link :  "+data.link;
+            document.getElementById('key').innerText="key :  "+data.key;
+        }
+    </script>
+</body>
+</html>
