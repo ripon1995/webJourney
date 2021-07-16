@@ -1,0 +1,22 @@
+.country-container{
+    border: 1px solid goldenrod;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.country-name{
+    color: indigo;
+    font-size: 45px;
+    font-family: cursive;
+}
+
+#countries{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.secondDiv img{
+    width: 100px;
+    height: 100px;
+}
