@@ -1,0 +1,26 @@
+.product{
+    display: flex;
+    border-bottom: 1px solid seagreen;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding-bottom: 10px;
+}
+
+
+.product-details h4{
+    color: navy;
+    font-weight: 400;
+}
+
+.product-details{
+    margin-left: 50px;
+}
+
+.product-details button{
+    background-color: orange;
+    width: 150px;
+    height: 30px;
+    border:1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
