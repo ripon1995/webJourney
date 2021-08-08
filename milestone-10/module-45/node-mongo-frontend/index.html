@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <h1 style="text-align: center;">Welcome frontend</h1>
+
+    <p id="userName"></p>
+
+    <div>
+        <div class="input-group" style="width: 500px;">
+            <input id="etName" type="text" class="form-control" placeholder="enter name">
+            <button class="btn-primary" id="btnAdd">Add Freind</button>
+          </div>
+    </div>
+
+    <script>
+
+        //getUser();
+
+        const btnAdd = document.getElementById('btnAdd');
+        btnAdd.addEventListener('click',()=>{
+            const name = document.getElementById('etName').value;
+            const user ={name};
+            console.log(user);
+            addNewUser(user);
+        })
+
+        function addNewUser(data){
+            fetch('http://localhost:3000/addFriend', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+                })
+                .then((response) => response.json())
+                .then((data) => console.log('Post done wow'));
+        }
+
+
+        function getUser(){
+            fetch('http://localhost:3000/users/2')
+            .then(res=>res.json())
+            .then(data=>displayData(data));
+        }
+
+        function displayData(data){
+            document.getElementById('userName').innerText ="Name: "+ data.name;
+        }
+
+    </script>
+</body>
+</html>
